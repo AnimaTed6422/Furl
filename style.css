@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap');
+
 :root {
+    --header-font: 'Unbounded', cursive;
     --font: 'Heebo', sans-serif;
 }
 
 h1.header {
-    font-family: var(--font);
+    font-family: var(--header-font);
     text-align: center;
     font-size: 1000%;
     user-select: none;
