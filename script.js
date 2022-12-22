@@ -37,7 +37,7 @@ function selectFile(){
                 "name": file.name,
                 "data": content
             };
-            var url = "http://furl.surge.sh/share.html#" + encodeURI(btoa(JSON.stringify(data)));
+            var url = "http://furl-fs.netlify.app/share.html#" + encodeURI(btoa(JSON.stringify(data)));
             showLink(url);
         }
     }
