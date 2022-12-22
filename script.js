@@ -19,7 +19,7 @@ warn();
 function showLink(url){
     var box = document.getElementById('linkbox');
     box.src = url;
-    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 20) + "</p> <img aria-label=\"Copy\" src=\"icons/copy.svg\" class=\"img\" onclick=\"copy(document.getElementById('linkbox').src)\">";
+    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 20) + "</p> <img src=\"icons/copy.svg\" class=\"img\" title=\"Copy\" onclick=\"copy(document.getElementById('linkbox').src)\">";
     box.style.display = "block";
 }
 
