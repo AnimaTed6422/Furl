@@ -3,6 +3,7 @@
 :root {
     --header-font: 'Unbounded', cursive;
     --font: 'Heebo', sans-serif;
+    --link-font: 'Source Code Pro', sans-serif;
 }
 
 h1.header {
@@ -49,7 +50,7 @@ a.inhomelink {
 }
 
 #linktext {
-    font-family: 'Source Code Pro', monospace;
+    font-family: var(--link-font);
     text-align: center;
     display: inline;
     vertical-align: middle;
@@ -61,4 +62,10 @@ img.img {
     cursor: pointer;
     margin-left: 5%;
     vertical-align: middle;
+}
+
+.err {
+    color: red;
+    font-family: var(--link-font);
+    text-align: center;
 }

@@ -24,9 +24,15 @@ upload.onclick = (e) => {
                 "data": content
             };
             var url = "http://furl-fs.netlify.app/share.html#" + encodeURI(btoa(JSON.stringify(data)));
-            //navigator.clipboard.writeText(url);
-            //showToast("Copied URL to Clipboard");
-            navigator.share(url);
+            if(navigator.share){
+                navigator.share({
+                    title: file.name,
+                    text: `Share ${file.name} on Furl`,
+                    url: url
+                }).catch(err => {
+                    window.alert("An Error was Encountered.")
+                });
+            }
         };
         reader.readAsText(file, "UTF-8");
     }
