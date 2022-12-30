@@ -23,9 +23,19 @@ button.select {
     padding: 10px;
 }
 
-p.smol {
+p.smol, p.text {
     text-align: center;
     font-family: var(--font);
+}
+
+.homelink {
+    text-align: center;
+    font-family: var(--font);
+}
+
+a.inhomelink {
+    text-decoration: none;
+    color: #126bd1;
 }
 
 #linkbox {
