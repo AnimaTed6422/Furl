@@ -66,6 +66,29 @@ img.img {
 
 .err {
     color: red;
+    display: none;
     font-family: var(--link-font);
     text-align: center;
+}
+
+.download {
+    font-family: var(--header-font);
+    font-size: 700%;
+    text-align: center;
+}
+
+.desc {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+.linkwrap {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.link {
+    color: #126bd1;
+    text-decoration: none;
 }

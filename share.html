@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downloading {file}...</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p id="downloadText">Downloading...</p>
+    <noscript>
+        <h1 class="header">oops.</h1>
+        <p>Please enable JavaScript on your browser</p>
+    </noscript>
+    <p id="downloadText">Your download should start shortly</p>
     <script src="download.js"></script>
-    <style> p#downloadText { font-family: Roboto, sans-serif; }</style>
+    <style>
+        p#downloadText {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </body>
 </html>
