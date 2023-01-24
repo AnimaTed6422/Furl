@@ -19,8 +19,8 @@ exports.handler = async (event, context) => {
       docsUrl: "https://furl-fs.netlify.app/docs/upload"
     };
     return {
-      statusCode: 422
-      body: JSON.stringify(output);
+      statusCode: 422,
+      body: JSON.stringify(output)
     }
   }
   let filename = params.name;
