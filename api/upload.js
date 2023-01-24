@@ -4,11 +4,12 @@ exports.handler = async (event, context) => {
   if(event.httpMethod !== "POST"){
      let output = {
       message: "POST is the required HTTP Protocol",
-      docsUrl: "https://furl-fs.netlify.app/docs/upload"
+      docsUrl: "https://furl-fs.netlify.app/docs/upload",
+      request: event.body
     };
     return {
       statusCode: 405,
-      body: "You must use POST when uploading a file."
+      body: JSON.stringify(output);
     }
   }
   
