@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
     };
     return {
       statusCode: 405,
-      body: JSON.stringify(output);
+      body: JSON.stringify(output)
     }
   }
   
