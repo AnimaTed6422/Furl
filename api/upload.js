@@ -34,7 +34,8 @@ exports.handler = async (event, context) => {
   let apiurl = "https://furl-fs.netlify.app/.netlify/functions/download?id=" + id;
   let output = {
     "url": url,
-    "ApiURL": apiurl
+    "ApiURL": apiurl,
+    "request": event.body
   };
   return {
     statusCode: 200,
