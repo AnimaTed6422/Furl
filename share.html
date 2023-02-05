@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloading {file}...</title>
+    <title>Downloading...</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,11 +12,32 @@
         <h1 class="header">oops.</h1>
         <p>Please enable JavaScript on your browser</p>
     </noscript>
-    <p id="downloadText">Your download should start shortly</p>
+    <p id="downloadText">Loading Download...</p>
+    <button id="bton" onclick="download(data)">Download</button>
     <script src="download.js"></script>
     <style>
         p#downloadText {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Unbounded', sans-serif;
+            text-align: center;
+            font-size: 400%;
+            margin-top: 15%;
+            user-select: none;
+        }
+        #bton {
+            border: 1px solid black;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            cursor: pointer;
+        }
+        #bton:hover {
+            border: none;
+            padding: 11px;
+            background: black;
+            color: white;
         }
     </style>
 </body>

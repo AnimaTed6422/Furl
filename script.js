@@ -15,6 +15,12 @@ function copy(text){
     navigator.clipboard.writeText(text);
 }
 
+function error(message){
+    var err = document.getElementById('err');
+    err.innerText = message;
+    err.style.display = "block";
+}
+
 function warn(){
     console.log("%cWARNING", "color: red; font-size: 250%");
     console.log("Entering code into this terminal can break things, ensure you know what you're doing when messing with the Console.");
@@ -25,13 +31,25 @@ warn();
 function showLink(url){
     var box = document.getElementById('linkbox');
     box.src = url;
-    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 20) + "</p> <img src=\"icons/copy.svg\" class=\"img\" title=\"Copy\" onclick=\"copy(document.getElementById('linkbox').src)\">";
+    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 30) + "</p>";
+    box.onclick = (e) => {
+        copy(e.target.src);
+        e.target.title = "Copied!";
+        setTimeout(() => {
+            e.target.title = "Click to Copy";
+        }, 3000);
+    }
+    box.title = "Click to Copy";
     box.style.display = "block";
 }
 
 function selectFile(){
     var inp = document.createElement('input');
     inp.type = 'file';
+    let err = document.getElementById('err');
+    if(err.style.display == "block"){
+        err.style.display = "none";
+    }
     inp.click();
     inp.onchange = (e) => {
         var file = e.target.files[0];
@@ -51,7 +69,7 @@ function selectFile(){
                 "name": file.name,
                 "data": content
             };
-            var url = "http://furl-fs.netlify.app/share.html#" + encodeURI(btoa(JSON.stringify(data)));
+            var url = "http://furl-fs.netlify.app/share#" + encodeURI(btoa(JSON.stringify(data)));
             showLink(url);
         }
     }

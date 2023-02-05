@@ -1,3 +1,5 @@
+var data;
+
 function err(){
     // Curtosy of: https://stackoverflow.com/questions/7860392/determine-if-string-is-in-base64-using-javascript
     document.title = "This URL is invalid - Furl";
@@ -27,9 +29,9 @@ if(window.location.hash == "" || window.location.hash == "#"){
         err();
         //throw new Error("URL is invalid");
     }
-    var data = JSON.parse(atob(content));
-    document.title = document.title.replace("{file}", data.name);
-    download(data);
-    document.getElementById("downloadText").innerHTML = "Downloaded. If your download hasn't started, Click <a id=\"link\" href=\"#\">Here</a>";
+    data = JSON.parse(atob(content));
+    document.title = `Downloading ${data.name}`;
+    //download(data);
+    document.getElementById("downloadText").innerText = "Download Ready";
     document.getElementById("link").onclick = (e) => { download(data); }
 }
