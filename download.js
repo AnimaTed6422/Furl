@@ -16,10 +16,13 @@ function download(data){
     link.setAttribute("href", window.URL.createObjectURL(file));
     link.setAttribute("download", data.name);
     link.click();
+    document.getElementById('bton').style.display = 'none';
+    document.getElementById("downloadText").innerText = "Downloaded";
 }
 
 if(window.location.hash == "" || window.location.hash == "#"){
     document.body.removeChild(document.getElementById("downloadText"));
+    document.body.removeChild(document.getElementById("bton"));
     err();
 } else {
     var link = document.createElement('a');
@@ -31,6 +34,7 @@ if(window.location.hash == "" || window.location.hash == "#"){
     }
     data = JSON.parse(atob(content));
     document.title = `Downloading ${data.name}`;
+    document.getElementById('bton').innerText += " " + data.name;
     //download(data);
     document.getElementById("downloadText").innerText = "Download Ready";
     document.getElementById("link").onclick = (e) => { download(data); }

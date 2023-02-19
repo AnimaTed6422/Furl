@@ -1,8 +1,20 @@
 // Furl 1.7
+var url;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
     window.location.href = 'm.html';
 }
+
+function ShowSnack() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+  
+    // Add the "show" class to DIV
+    x.className = "show";
+  
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  } 
 
 function truncateString(str, num) {
     if (str.length <= num) {
@@ -28,16 +40,13 @@ function warn(){
 
 warn();
 
-function showLink(url){
+function showLink(){
     var box = document.getElementById('linkbox');
-    box.src = url;
-    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 30) + "</p>";
+    //box.src = url;
+    box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 40) + "</p>";
     box.onclick = (e) => {
-        copy(e.target.src);
-        e.target.title = "Copied!";
-        setTimeout(() => {
-            e.target.title = "Click to Copy";
-        }, 3000);
+        copy(url);
+        ShowSnack();
     }
     box.title = "Click to Copy";
     box.style.display = "block";
@@ -69,8 +78,8 @@ function selectFile(){
                 "name": file.name,
                 "data": content
             };
-            var url = "http://furl-fs.netlify.app/share#" + encodeURI(btoa(JSON.stringify(data)));
-            showLink(url);
+            url = "http://furl-fs.netlify.app/share#" + encodeURI(btoa(JSON.stringify(data)));
+            showLink();
         }
     }
 }
