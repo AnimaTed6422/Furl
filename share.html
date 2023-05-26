@@ -7,38 +7,16 @@
     <title>Download a file on Furl</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="gridBody">
+    <h1 class="absolute header" onclick="window.location.href='index.html';">Furl</h1>
     <noscript>
         <h1 class="header">oops.</h1>
         <p>Please enable JavaScript on your browser</p>
     </noscript>
-    <p id="downloadText">Loading Download...</p>
-    <button id="bton" onclick="download(data)">Download</button>
+    <div class="largeload">
+        <p id="downloadText">Loading Download...</p>
+        <button id="bton" onclick="download(data)">Download</button>
+    </div>
     <script src="download.js"></script>
-    <style>
-        p#downloadText {
-            font-family: 'Unbounded', sans-serif;
-            text-align: center;
-            font-size: 400%;
-            margin-top: 15%;
-            user-select: none;
-        }
-        #bton {
-            border: 1px solid black;
-            padding: 10px;
-            background: white;
-            border-radius: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            cursor: pointer;
-        }
-        #bton:hover {
-            border: none;
-            padding: 11px;
-            background: black;
-            color: white;
-        }
-    </style>
 </body>
 </html>

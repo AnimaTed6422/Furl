@@ -43,6 +43,7 @@ warn();
 function showLink(){
     var box = document.getElementById('linkbox');
     //box.src = url;
+    document.getElementById('lh').style.display = "flex";
     box.innerHTML = "<p id=\"linktext\">" + truncateString(url, 40) + "</p>";
     box.onclick = (e) => {
         copy(url);
@@ -52,34 +53,18 @@ function showLink(){
     box.style.display = "block";
 }
 
-function selectFile(){
-    var inp = document.createElement('input');
-    inp.type = 'file';
-    let err = document.getElementById('err');
-    if(err.style.display == "block"){
-        err.style.display = "none";
+async function selectFile(){
+    let [filehandle] = await window.showOpenFilePicker();
+    let file = await filehandle.getFile();
+    let reader = new FileReader();
+    reader.onload = (e) => {
+        var content = e.target.result;
+        var data = {
+            "name": file.name,
+            "data": content
+        };
+        url = "http://furl-fs.netlify.app/share#" + encodeURI(btoa(JSON.stringify(data)));
+        showLink();
     }
-    inp.click();
-    inp.onchange = (e) => {
-        var file = e.target.files[0];
-        var reader = new FileReader();
-        /*
-        // Checks if the file selected is text, but doesn't work with custom text formats.
-        if(!file.type.startsWith("text/")){
-            var box = document.getElementById('linkbox');
-            box.innerHTML = "<p class=\"err\">The file selected is not a text format</p>";
-            box.style.display = "block";
-            return;
-        }*/
-        reader.readAsText(file, "UTF-8");
-        reader.onload = (e) => {
-            var content = e.target.result;
-            var data = {
-                "name": file.name,
-                "data": content
-            };
-            url = "http://furl-fs.netlify.app/share#" + encodeURI(btoa(JSON.stringify(data)));
-            showLink();
-        }
-    }
+    reader.readAsText(file);
 }
