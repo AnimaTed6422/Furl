@@ -13,7 +13,6 @@ body {
     margin: none;
     padding: none;
     background: #060d19;
-    overflow: none;
     user-select: none;
     overflow: clip;
 }
